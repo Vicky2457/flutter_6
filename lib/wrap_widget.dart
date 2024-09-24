@@ -38,7 +38,7 @@ class _DashBoardScreen extends State<DashBoardScreen> {
           title: const Text("Dashboard"),
           backgroundColor: Colors.orange,
         ),
-        body: Container(
+        body: SizedBox(
           width: double.infinity,
           child: Wrap(
             direction: Axis.horizontal,

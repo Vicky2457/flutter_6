@@ -47,31 +47,31 @@ class _DashBoardScreen extends State<DashBoardScreen> {
                 dimension: 200,
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: Text(
+                  child: const Text(
                     'Click',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 )),
-            SizedBox(
+            const SizedBox(
               width: 32,
             ),
             SizedBox.square(
                 dimension: 200,
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: Text(
+                  child: const Text(
                     'Click',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 )),
-            SizedBox(
+            const SizedBox(
               width: 32,
             ),
             SizedBox.square(
                 dimension: 200,
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: Text(
+                  child: const Text(
                     'Click',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),

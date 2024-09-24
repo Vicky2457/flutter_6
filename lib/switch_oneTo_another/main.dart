@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_6/switch_oneTo_another/introPage.dart';
 
 void main() {
   runApp(const FlutterApp());
@@ -15,7 +16,7 @@ class FlutterApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
+      home: Intropage(),
     );
   }
 }
@@ -35,32 +36,18 @@ class MyHomeState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Stateful'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'count : $count',
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(
-              height: 10,
-              width: 10,
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    count++;
-                    print('count : $count');
-                  });
-                },
-                child: const Text('Incremenet Count'))
-          ],
+        appBar: AppBar(
+          title: const Center(
+              child: Text(
+            'Stateful',
+            style: TextStyle(fontSize: 20, color: Colors.white),
+          )),
+          backgroundColor: const Color.fromARGB(255, 31, 105, 233),
         ),
-      ),
-    );
+        body: const Center(
+            child: Text(
+          'Second page',
+          style: TextStyle(fontSize: 30),
+        )));
   }
 }

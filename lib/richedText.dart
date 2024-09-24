@@ -40,7 +40,7 @@ class _DashBoardScreen extends State<DashBoardScreen> {
         ),
         body: Center(
           child: RichText(
-              text: TextSpan(
+              text: const TextSpan(
                   style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,

@@ -38,7 +38,7 @@ class _DashBoardScreen extends State<DashBoardScreen> {
           title: const Text("Dashboard"),
           backgroundColor: Colors.orange,
         ),
-        body: Center(
+        body: const Center(
             child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

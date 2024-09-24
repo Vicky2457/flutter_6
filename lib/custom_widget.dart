@@ -36,28 +36,28 @@ class _DashBoardScreen extends State<DashBoardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Dashboard"),
+          title: const Text("Dashboard"),
           backgroundColor: const Color.fromARGB(255, 14, 78, 215),
         ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
+              SizedBox(
                 width: 150,
                 child: Roundedbutton(
                   btnName: 'play',
-                  icon: Icon(Icons.play_arrow),
+                  icon: const Icon(Icons.play_arrow),
                   callback: () {
                     print('Logged in');
                   },
-                  textStyle: TextStyle(fontSize: 30),
+                  textStyle: const TextStyle(fontSize: 30),
                 ),
               ),
               Container(
                 height: 20,
               ),
-              Container(
+              SizedBox(
                 width: 150,
                 child: Roundedbutton(
                   btnName: 'press',
@@ -66,7 +66,7 @@ class _DashBoardScreen extends State<DashBoardScreen> {
                     print(' playing');
                   },
                   bgcolor: Colors.orange,
-                  textStyle: TextStyle(fontSize: 30),
+                  textStyle: const TextStyle(fontSize: 30),
                 ),
               ),
             ],
