@@ -18,7 +18,7 @@ class _SplashScreenState extends State<StatefulWidget> {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => MyHomePage(),
+            builder: (context) => const MyHomePage(),
           ));
     });
   }

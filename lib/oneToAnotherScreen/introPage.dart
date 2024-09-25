@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // ignore: must_be_immutable
 class FirstPage extends StatelessWidget {
   var nameFromHome;
-  FirstPage(this.nameFromHome);
+  FirstPage(this.nameFromHome, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +17,12 @@ class FirstPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Welcome  ,  $nameFromHome", style: TextStyle(fontSize: 20)),
+              Text("Welcome  ,  $nameFromHome", style: const TextStyle(fontSize: 20)),
               ElevatedButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text('Back'))
+                  child: const Text('Back'))
             ],
           ),
         ));

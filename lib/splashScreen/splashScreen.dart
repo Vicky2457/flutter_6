@@ -19,7 +19,7 @@ class _SplashScreenState extends State<StatefulWidget> {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => Intropage(),
+            builder: (context) => const Intropage(),
           ));
     });
   }

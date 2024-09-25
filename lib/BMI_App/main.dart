@@ -15,12 +15,12 @@ class FlutterApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: MyHomePage());
+        home: const MyHomePage());
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomeState();
@@ -46,49 +46,49 @@ class _MyHomeState extends State<MyHomePage> {
         body: Container(
           color: bgcolor,
           child: Center(
-            child: Container(
+            child: SizedBox(
               width: 400,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'BMI',
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 42,
                   ),
                   TextField(
                     controller: weightController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       label: Text('Enter your Weight in kg'),
                       prefixIcon: Icon(Icons.line_weight),
                     ),
                     keyboardType: TextInputType.number,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 22,
                   ),
                   TextField(
                     controller: feetController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       label: Text('Enter your hight in feet'),
                       prefixIcon: Icon(Icons.height),
                     ),
                     keyboardType: TextInputType.number,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 22,
                   ),
                   TextField(
                     controller: inchController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       label: Text('Enter  hight in inch'),
                       prefixIcon: Icon(Icons.height),
                     ),
                     keyboardType: TextInputType.number,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 22,
                   ),
                   ElevatedButton(
@@ -128,10 +128,10 @@ class _MyHomeState extends State<MyHomePage> {
                           });
                         }
                       },
-                      child: Text('calculate')),
+                      child: const Text('calculate')),
                   Text(
                     result,
-                    style: TextStyle(fontSize: 30),
+                    style: const TextStyle(fontSize: 30),
                   )
                 ],
               ),

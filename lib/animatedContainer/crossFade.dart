@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,24 +17,39 @@ class FlutterApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: MyHomePage());
+        home: const MyHomePage());
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomeState();
 }
 
 class _MyHomeState extends State<MyHomePage> {
-  var _height = 200.0;
-  var _width = 200.0;
-  var _color = Colors.blue.shade900;
-  // Decoration mydecor = BoxDecoration(borderRadius: BorderRadius.circular(21));
-  var myOpacity = 1.0;
-  bool flag = true;
+  bool isFirst = true;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    // Timer(Duration(seconds: 2), () {
+    //   reload();
+    // });
+    super.initState();
+  }
+
+  void reload() {
+    setState(() {
+      if (isFirst) {
+        isFirst = false;
+      } else {
+        isFirst = true;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,46 +61,36 @@ class _MyHomeState extends State<MyHomePage> {
           )),
           backgroundColor: const Color.fromARGB(255, 31, 105, 233),
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              AnimatedOpacity(
-                opacity: myOpacity,
-
-                //  decoration: mydecor,
-                curve: Curves.easeInOut,
-                duration: Duration(seconds: 3),
-                child: Container(
-                  color: _color,
-                  height: _height,
-                  width: _width,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            AnimatedCrossFade(
+                firstChild: Center(
+                  child: Container(
+                    width: 300,
+                    height: 250,
+                    color: Colors.grey,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      if (flag) {
-                        _width = 100.0;
-                        _height = 100.0;
-                        _color = Colors.green;
-                        myOpacity = 0.0;
-                        flag = false;
-                      } else {
-                        _height = 200.0;
-                        _width = 200.0;
-                        _color = Colors.blue.shade900;
-                        myOpacity = 1.0;
-                        flag = true;
-                      }
-                    });
-                  },
-                  child: Text('Animated'))
-            ],
-          ),
+                secondChild: Center(
+                  child: Image.asset('assets/images/flower.jpeg',
+                      height: 200, width: 200),
+                ),
+                firstCurve: Curves.easeInOut,
+                sizeCurve: Curves.bounceInOut,
+                crossFadeState: isFirst
+                    ? CrossFadeState.showFirst
+                    : CrossFadeState.showSecond,
+                duration: Duration(seconds: 2)),
+            SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  reload();
+                },
+                child: Text('show'))
+          ],
         ));
   }
 }

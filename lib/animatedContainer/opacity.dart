@@ -15,12 +15,12 @@ class FlutterApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: MyHomePage());
+        home: const MyHomePage());
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomeState();
@@ -53,14 +53,14 @@ class _MyHomeState extends State<MyHomePage> {
 
                 //  decoration: mydecor,
                 curve: Curves.easeInOut,
-                duration: Duration(seconds: 3),
+                duration: const Duration(seconds: 3),
                 child: Container(
                   color: _color,
                   height: _height,
                   width: _width,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               ElevatedButton(
@@ -81,7 +81,7 @@ class _MyHomeState extends State<MyHomePage> {
                       }
                     });
                   },
-                  child: Text('Animated'))
+                  child: const Text('Animated'))
             ],
           ),
         ));

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -23,42 +25,32 @@ class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
   @override
-  // State<StatefulWidget> createState() =>  MyHomeState();  direct method
-  State<StatefulWidget> createState() {
-    return MyHomeState();
-  }
+  State<MyHomePage> createState() => _MyHomeState();
 }
 
-class MyHomeState extends State<MyHomePage> {
-  RangeValues values = const RangeValues(0, 100);
-
+class _MyHomeState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    RangeLabels labels =
-        RangeLabels(values.start.toString(), values.end.toString());
     return Scaffold(
         appBar: AppBar(
           title: const Center(
               child: Text(
-            'Stateful',
+            'Animated',
             style: TextStyle(fontSize: 20, color: Colors.white),
           )),
           backgroundColor: const Color.fromARGB(255, 31, 105, 233),
         ),
         body: Center(
-          child: RangeSlider(
-              values: values,
-              labels: labels,
-              divisions: 10,
-              min: 0,
-              max: 100,
-              activeColor: Colors.orange,
-              inactiveColor: Colors.yellow,
-              onChanged: (newValue) {
-                values = newValue;
-                print('${newValue.start},${newValue.end}');
-                setState(() {});
-              }),
+          child: ClipRRect(
+            // borderRadius: BorderRadius.all(Radius.elliptical(30, 30)),
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(50), bottomRight: Radius.circular(50)),
+            child: Image.asset(
+              'assets/images/flower.jpeg',
+              // height: 200,
+              // width: 200,
+            ),
+          ),
         ));
   }
 }

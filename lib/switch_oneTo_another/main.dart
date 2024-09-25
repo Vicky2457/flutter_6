@@ -16,7 +16,7 @@ class FlutterApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Intropage(),
+      home: const Intropage(),
     );
   }
 }

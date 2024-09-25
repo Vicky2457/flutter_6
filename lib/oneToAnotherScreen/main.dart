@@ -17,7 +17,7 @@ class FlutterApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Splashscreen(),
+      home: const Splashscreen(),
       // home: MyHomePage()
     );
   }
@@ -50,22 +50,22 @@ class MyHomeState extends State<MyHomePage> {
           backgroundColor: const Color.fromARGB(255, 31, 105, 233),
         ),
         body: Center(
-          child: Container(
+          child: SizedBox(
             width: 300,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   'Dashboard Screen',
                   style: TextStyle(fontSize: 30),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 TextField(
                   controller: nameController,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
@@ -77,7 +77,7 @@ class MyHomeState extends State<MyHomePage> {
                                 FirstPage(nameController.text.toString()),
                           ));
                     },
-                    child: Text(
+                    child: const Text(
                       'M Profile',
                       style: TextStyle(fontSize: 10, color: Colors.black),
                     ))
