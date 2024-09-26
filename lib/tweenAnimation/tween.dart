@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -27,28 +26,44 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomeState();
 }
 
-class _MyHomeState extends State<MyHomePage> {
+class _MyHomeState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
+  late Animation animation;
+  late Animation colorAnimation;
+  late AnimationController animationController;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    animationController =
+        AnimationController(vsync: this, duration: Duration(seconds: 4));
+    animation = Tween(begin: 0.0, end: 200.0).animate(animationController);
+    colorAnimation = ColorTween(begin: Colors.blue, end: Colors.red)
+        .animate(animationController);
+    animationController.addListener(() {
+      print(animation.value);
+      setState(() {});
+    });
+    animationController.forward();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: const Center(
               child: Text(
-            'Animated',
+            'Tween',
             style: TextStyle(fontSize: 20, color: Colors.white),
           )),
           backgroundColor: const Color.fromARGB(255, 31, 105, 233),
         ),
         body: Center(
-          child: ClipRRect(
-            // borderRadius: BorderRadius.all(Radius.elliptical(30, 30)),
-            borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(50), bottomRight: Radius.circular(50)),
-            child: Image.asset(
-              'assets/images/flower.jpeg',
-              // height: 200,
-              // width: 200,
-            ),
+          child: Container(
+            width: animation.value,
+            height: animation.value,
+            color: colorAnimation.value,
           ),
         ));
   }

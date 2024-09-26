@@ -44,7 +44,15 @@ class _MyHomeState extends State<MyHomePage> {
           backgroundColor: const Color.fromARGB(255, 31, 105, 233),
         ),
         body: Container(
-          color: bgcolor,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [
+                Colors.orange.shade100,
+                Colors.yellow.shade100,
+                Colors.red.shade100,
+              ],
+                  begin: FractionalOffset(1.0, 0.0),
+                  end: FractionalOffset(0.0, 1.0))),
           child: Center(
             child: SizedBox(
               width: 400,

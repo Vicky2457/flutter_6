@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -28,6 +27,14 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomeState extends State<MyHomePage> {
+  var arrData = [
+    {'name': 'raman', 'mobno': '9518659863', 'unread': '1'},
+    {'name': 'sham', 'mobno': '95186545663', 'unread': '3'},
+    {'name': 'arm', 'mobno': '45678863', 'unread': '6'},
+    {'name': 'raghu', 'mobno': '997785863', 'unread': '5'},
+    {'name': 'sundar', 'mobno': '7755959863', 'unread': '4'},
+    {'name': 'gyan', 'mobno': '956685863', 'unread': '2'},
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,17 +46,19 @@ class _MyHomeState extends State<MyHomePage> {
           )),
           backgroundColor: const Color.fromARGB(255, 31, 105, 233),
         ),
-        body: Center(
-          child: ClipRRect(
-            // borderRadius: BorderRadius.all(Radius.elliptical(30, 30)),
-            borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(50), bottomRight: Radius.circular(50)),
-            child: Image.asset(
-              'assets/images/flower.jpeg',
-              // height: 200,
-              // width: 200,
-            ),
-          ),
+        body: Container(
+          child: ListView(
+              children: arrData
+                  .map((value) => ListTile(
+                        leading: Icon(Icons.account_circle),
+                        title: Text(value['name'].toString()),
+                        subtitle: Text(value['mobno'].toString()),
+                        trailing: CircleAvatar(
+                            backgroundColor: Colors.green,
+                            radius: 12,
+                            child: Text(value['unread'].toString())),
+                      ))
+                  .toList()),
         ));
   }
 }

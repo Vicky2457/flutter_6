@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -28,6 +27,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomeState extends State<MyHomePage> {
+  var arrindex = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,15 +41,26 @@ class _MyHomeState extends State<MyHomePage> {
           backgroundColor: const Color.fromARGB(255, 31, 105, 233),
         ),
         body: Center(
-          child: ClipRRect(
-            // borderRadius: BorderRadius.all(Radius.elliptical(30, 30)),
-            borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(50), bottomRight: Radius.circular(50)),
-            child: Image.asset(
-              'assets/images/flower.jpeg',
-              // height: 200,
-              // width: 200,
-            ),
+          child: ListWheelScrollView(
+            itemExtent: 200,
+            children: arrindex
+                .map((value) => Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        child: Center(
+                          child: Text(
+                            '$value',
+                            style: TextStyle(fontSize: 20, color: Colors.white),
+                          ),
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(21),
+                        ),
+                        width: double.infinity,
+                      ),
+                    ))
+                .toList(),
           ),
         ));
   }

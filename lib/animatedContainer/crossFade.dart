@@ -1,4 +1,3 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 
@@ -81,15 +80,15 @@ class _MyHomeState extends State<MyHomePage> {
                 crossFadeState: isFirst
                     ? CrossFadeState.showFirst
                     : CrossFadeState.showSecond,
-                duration: Duration(seconds: 2)),
-            SizedBox(
+                duration: const Duration(seconds: 2)),
+            const SizedBox(
               height: 10,
             ),
             ElevatedButton(
                 onPressed: () {
                   reload();
                 },
-                child: Text('show'))
+                child: const Text('show'))
           ],
         ));
   }
