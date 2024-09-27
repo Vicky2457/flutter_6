@@ -47,17 +47,17 @@ class _MyHomeState extends State<MyHomePage> {
                 .map((value) => Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(21),
+                        ),
+                        width: double.infinity,
                         child: Center(
                           child: Text(
                             '$value',
                             style: TextStyle(fontSize: 20, color: Colors.white),
                           ),
                         ),
-                        decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.circular(21),
-                        ),
-                        width: double.infinity,
                       ),
                     ))
                 .toList(),
